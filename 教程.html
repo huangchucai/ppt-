@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>教程--- 饥人谷</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab, jirengu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="http://cdn.jirengu.com/ppt-cli/css/reveal.css">
+		<link rel="stylesheet" href="http://cdn.jirengu.com/ppt-cli/css/theme/sky.css" id="theme">
+		
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="http://cdn.jirengu.com/ppt-cli/css/zenburn.css">
+
+		<!--[if lt IE 9]>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/lib/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides align-center">
+			<section data-tag="down"><section data-tag="h2"><h2>&#x8FD9;&#x662F;&#x4E8C;&#x7EA7;&#x6807;&#x9898;</h2>
+</section><section data-tag="h3"><h3>&#x8FD9;&#x662F;&#x4E09;&#x7EA7;&#x6807;&#x9898;&#x7684;&#x5206;&#x9875;</h3>
+<img src="http://i2.muimg.com/567571/b4e8cf87b85dcf01.jpg" width="700px">
+</section></section><section data-tag="down"><section data-tag="h2"><h2>&#x9EC4;&#x695A;&#x624D;</h2>
+</section><section data-tag="h3"><h3>&#x9EC4;&#x695A;&#x624D;</h3>
+<blockquote>
+<p>&#x4ED6;&#x8BF4;&#x4E00;&#x4E2A;&#x9017;&#x6BD4;&#x9017;&#x6BD4;</p>
+</blockquote>
+</section><section data-tag="h3"><h3>&#x9B3C;&#x77E5;&#x9053;&#x4ED6;&#x60F3;&#x5E72;&#x561B;</h3>
+<img src="http://i2.muimg.com/567571/ca8f8443ce5d9efc.png" width="700px">
+</section><section data-tag="h3"><h3>&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x5199;&#x4EC0;&#x4E48;</h3>
+</section></section><section data-tag="down"><section data-tag="h2"><h2>&#x641E;&#x70B9;&#x4EE3;&#x7801;</h2>
+</section><section data-tag="h3"><h3>&#x4EE3;&#x7801;&#x6765;&#x4E86;</h3>
+<pre><code class="language-javascript">function loadImageAsync(url) {
+  return new Promise(function(resolve, reject) {
+    var image = new Image();
+
+    image.onload = function() {
+      resolve(image);
+    };
+
+    image.onerror = function() {
+      reject(new Error(&apos;Could not load image at &apos; + url));
+    };
+
+    image.src = url;
+  });
+}
+</code></pre>
+</section></section>
+			</div>
+
+		</div>
+
+		<script src="http://cdn.jirengu.com/ppt-cli/js/lib/head.min.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/lib/reveal.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/lib/classList.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/plugin/highlight/highlight.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/plugin/zoom-js/zoom.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/plugin/notes/notes.js"></script>
+		<script src="http://cdn.jirengu.com/ppt-cli/js/plugin/other/plugin.js"></script>
+
+		
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				transition: 'white' // none/fade/slide/convex/concave/zoom
+			});
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+			    runScript(event.currentSlide);
+			} );
+
+			hljs.initHighlightingOnLoad();
+
+			function runScript(section){
+				var scriptStr = section.getAttribute('data-script');
+				if(scriptStr){
+					scriptStr = decodeURIComponent(scriptStr);
+					var tag = document.createElement('script');
+					tag.innerHTML = scriptStr;
+					document.head.appendChild(tag);
+				}
+
+			}
+		</script>
+
+	</body>
+</html>
